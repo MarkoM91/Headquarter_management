@@ -1,0 +1,36 @@
+{% extends 'bundles/FOSUserBundle/views/layout.html.twig' %}
+{% block fos_user_content %}
+<table id="myTable" class="display table table-striped  table-bordered  display responsive no-wrap" width=100%>
+
+ <thead>
+     <tr>
+        <th><a>ID</a></th><!--se l'orderBy è uguale a id se è così mettiamo la classe facciamo l'eco della classe altrimenti vuoto-->
+        <th><a>NAME</a></th>
+        <th><a>LASTNAME</a></th>
+        <th><a>LEVEL</a></th>
+        <th><a>USERNAME</a></th>
+        <th><a>PASSWORD</a></th>
+        <th><a>EMAIL</a></th>
+        <th><a>DATE OF BIRTH</a></th>
+        <th><a>PHOTO</a></th>
+     </tr>
+</thead>
+
+    <tbody>
+
+             {% for user in users %}
+             <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name}}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.level }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.password}}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.dateOfBirth|date('Y-m-d') }}</td>
+                <td>{{ user.photo }}</td>
+            </tr>
+             {% endfor %}
+
+      </tbody>
+{% endblock %}
